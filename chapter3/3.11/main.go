@@ -22,7 +22,7 @@ func main() {
 	}
 }
 
-func send(msg chan<- string, done chan bool) {
+func send(msg chan<- string, done <-chan bool) {
 	for {
 		select {
 		case <-done:
