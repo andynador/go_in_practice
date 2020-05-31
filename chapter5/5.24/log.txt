@@ -1,0 +1,193 @@
+goos: linux
+goarch: amd64
+pkg: github.com/andynador/go_in_practice/chapter5/5.24
+BenchmarkParallelOops-8   	==================
+WARNING: DATA RACE
+Write at 0x00c0001343b0 by goroutine 29:
+  bytes.(*Buffer).Write()
+      /usr/local/go/src/bytes/buffer.go:172 +0x42
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:269 +0x5b5
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:262 +0x1a0
+  text/template.(*Template).execute()
+      /usr/local/go/src/text/template/exec.go:217 +0x2f8
+  html/template.(*Template).Execute()
+      /usr/local/go/src/text/template/exec.go:200 +0xd3
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops.func1()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:18 +0x92
+  testing.(*B).RunParallel.func1()
+      /usr/local/go/src/testing/benchmark.go:665 +0x160
+
+Previous write at 0x00c0001343b0 by goroutine 27:
+  bytes.(*Buffer).Write()
+      /usr/local/go/src/bytes/buffer.go:172 +0x42
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:269 +0x5b5
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:262 +0x1a0
+  text/template.(*Template).execute()
+      /usr/local/go/src/text/template/exec.go:217 +0x2f8
+  html/template.(*Template).Execute()
+      /usr/local/go/src/text/template/exec.go:200 +0xd3
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops.func1()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:18 +0x92
+  testing.(*B).RunParallel.func1()
+      /usr/local/go/src/testing/benchmark.go:665 +0x160
+
+Goroutine 29 (running) created at:
+  testing.(*B).RunParallel()
+      /usr/local/go/src/testing/benchmark.go:658 +0x256
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:16 +0x255
+  testing.(*B).runN()
+      /usr/local/go/src/testing/benchmark.go:176 +0x12a
+  testing.(*B).launch()
+      /usr/local/go/src/testing/benchmark.go:328 +0x111
+
+Goroutine 27 (running) created at:
+  testing.(*B).RunParallel()
+      /usr/local/go/src/testing/benchmark.go:658 +0x256
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:16 +0x255
+  testing.(*B).runN()
+      /usr/local/go/src/testing/benchmark.go:176 +0x12a
+  testing.(*B).launch()
+      /usr/local/go/src/testing/benchmark.go:328 +0x111
+==================
+==================
+WARNING: DATA RACE
+Read at 0x00c000134390 by goroutine 29:
+  bytes.(*Buffer).Write()
+      /usr/local/go/src/bytes/buffer.go:110 +0x55
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:269 +0x5b5
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:262 +0x1a0
+  text/template.(*Template).execute()
+      /usr/local/go/src/text/template/exec.go:217 +0x2f8
+  html/template.(*Template).Execute()
+      /usr/local/go/src/text/template/exec.go:200 +0xd3
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops.func1()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:18 +0x92
+  testing.(*B).RunParallel.func1()
+      /usr/local/go/src/testing/benchmark.go:665 +0x160
+
+Previous write at 0x00c000134390 by goroutine 27:
+  bytes.(*Buffer).Write()
+      /usr/local/go/src/bytes/buffer.go:111 +0x19c
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:269 +0x5b5
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:262 +0x1a0
+  text/template.(*Template).execute()
+      /usr/local/go/src/text/template/exec.go:217 +0x2f8
+  html/template.(*Template).Execute()
+      /usr/local/go/src/text/template/exec.go:200 +0xd3
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops.func1()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:18 +0x92
+  testing.(*B).RunParallel.func1()
+      /usr/local/go/src/testing/benchmark.go:665 +0x160
+
+Goroutine 29 (running) created at:
+  testing.(*B).RunParallel()
+      /usr/local/go/src/testing/benchmark.go:658 +0x256
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:16 +0x255
+  testing.(*B).runN()
+      /usr/local/go/src/testing/benchmark.go:176 +0x12a
+  testing.(*B).launch()
+      /usr/local/go/src/testing/benchmark.go:328 +0x111
+
+Goroutine 27 (running) created at:
+  testing.(*B).RunParallel()
+      /usr/local/go/src/testing/benchmark.go:658 +0x256
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:16 +0x255
+  testing.(*B).runN()
+      /usr/local/go/src/testing/benchmark.go:176 +0x12a
+  testing.(*B).launch()
+      /usr/local/go/src/testing/benchmark.go:328 +0x111
+==================
+==================
+WARNING: DATA RACE
+Write at 0x00c0001343b0 by goroutine 28:
+  bytes.(*Buffer).Write()
+      /usr/local/go/src/bytes/buffer.go:172 +0x42
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:269 +0x5b5
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:262 +0x1a0
+  text/template.(*Template).execute()
+      /usr/local/go/src/text/template/exec.go:217 +0x2f8
+  html/template.(*Template).Execute()
+      /usr/local/go/src/text/template/exec.go:200 +0xd3
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops.func1()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:18 +0x92
+  testing.(*B).RunParallel.func1()
+      /usr/local/go/src/testing/benchmark.go:665 +0x160
+
+Previous write at 0x00c0001343b0 by goroutine 27:
+  bytes.(*Buffer).Write()
+      /usr/local/go/src/bytes/buffer.go:172 +0x42
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:269 +0x5b5
+  text/template.(*state).walk()
+      /usr/local/go/src/text/template/exec.go:262 +0x1a0
+  text/template.(*Template).execute()
+      /usr/local/go/src/text/template/exec.go:217 +0x2f8
+  html/template.(*Template).Execute()
+      /usr/local/go/src/text/template/exec.go:200 +0xd3
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops.func1()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:18 +0x92
+  testing.(*B).RunParallel.func1()
+      /usr/local/go/src/testing/benchmark.go:665 +0x160
+
+Goroutine 28 (running) created at:
+  testing.(*B).RunParallel()
+      /usr/local/go/src/testing/benchmark.go:658 +0x256
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:16 +0x255
+  testing.(*B).runN()
+      /usr/local/go/src/testing/benchmark.go:176 +0x12a
+  testing.(*B).launch()
+      /usr/local/go/src/testing/benchmark.go:328 +0x111
+
+Goroutine 27 (running) created at:
+  testing.(*B).RunParallel()
+      /usr/local/go/src/testing/benchmark.go:658 +0x256
+  github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops()
+      /var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:16 +0x255
+  testing.(*B).runN()
+      /usr/local/go/src/testing/benchmark.go:176 +0x12a
+  testing.(*B).launch()
+      /usr/local/go/src/testing/benchmark.go:328 +0x111
+==================
+panic: runtime error: slice bounds out of range [recovered]
+	panic: runtime error: slice bounds out of range
+
+goroutine 32 [running]:
+text/template.errRecover(0xc00013ced0)
+	/usr/local/go/src/text/template/exec.go:160 +0x2b1
+panic(0x678fc0, 0x875930)
+	/usr/local/go/src/runtime/panic.go:522 +0x1b5
+bytes.(*Buffer).Write(0xc000134390, 0xc0000200e0, 0x6, 0x8, 0x0, 0x0, 0x0)
+	/usr/local/go/src/bytes/buffer.go:177 +0x1c7
+text/template.(*state).walk(0xc000111650, 0x65cf40, 0xc000010018, 0x16, 0x6f72a0, 0xc0001342a0)
+	/usr/local/go/src/text/template/exec.go:269 +0x5b6
+text/template.(*state).walk(0xc00013ce50, 0x65cf40, 0xc000010018, 0x16, 0x6f70e0, 0xc000134270)
+	/usr/local/go/src/text/template/exec.go:262 +0x1a1
+text/template.(*Template).execute(0xc000130040, 0x6f3fe0, 0xc000134390, 0x65cf40, 0xc000010018, 0x0, 0x0)
+	/usr/local/go/src/text/template/exec.go:217 +0x2f9
+text/template.(*Template).Execute(...)
+	/usr/local/go/src/text/template/exec.go:200
+html/template.(*Template).Execute(0xc000134210, 0x6f3fe0, 0xc000134390, 0x65cf40, 0xc000010018, 0xc000111768, 0x434048)
+	/usr/local/go/src/html/template/template.go:122 +0xd4
+github.com/andynador/go_in_practice/chapter5/5%2e24.BenchmarkParallelOops.func1(0xc0000e8000)
+	/var/www/applications/go/src/github.com/andynador/go_in_practice/chapter5/5.24/main_test.go:18 +0x93
+testing.(*B).RunParallel.func1(0xc000020110, 0xc000020100, 0xc0000200e8, 0xc0000b6000, 0xc00000e060)
+	/usr/local/go/src/testing/benchmark.go:665 +0x161
+created by testing.(*B).RunParallel
+	/usr/local/go/src/testing/benchmark.go:658 +0x257
+exit status 2
+FAIL	github.com/andynador/go_in_practice/chapter5/5.24	0.011s

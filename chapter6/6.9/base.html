@@ -1,0 +1,19 @@
+{{define "base"}}
+<html>
+    <head>
+        <title>{{template "title" .}}</title>
+        {{block "styles" .}}
+            <style>
+                h1 {
+                    color: #400080
+                }
+            </style>
+        {{end}}
+    </head>
+    <body>
+        <h1>{{template "title" .}}</h1>
+        {{template "content" .}}
+        {{block "scripts" .}}{{end}}
+    </body>
+</html>
+{{end}}
